@@ -1,0 +1,23 @@
+extends base 
+
+block vars
+  - var title = "Login"
+
+block body
+  h1 Please enter your login information
+
+  if error
+    p ERROR: #{error}
+
+  form(method='post')
+    input(type='hidden', name="_csrf", value=csrfToken)
+    span Email:
+    input(type='email', name='email', required)
+    br
+    span Password:
+    input(type='password', name="password", required)
+    br
+    input(type='submit')
+    br
+    p <a href='/register'>Click here to Register</a>
+
